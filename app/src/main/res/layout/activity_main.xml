@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- The view should scroll if it cannot fit on the screen entirely -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -22,6 +32,57 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewBaseStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/base_stats"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerLevel" />
+
+    <TextView
+        android:id="@+id/textViewHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/h_p"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextHP"
+        app:layout_constraintTop_toBottomOf="@+id/genderGroup" />
+
+    <TextView
+        android:id="@+id/textViewAttack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/attack"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextAttack"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHP" />
+
+    <TextView
+        android:id="@+id/textViewDefense"
+        android:layout_width="61dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/defense"
+        android:textAlignment="textEnd"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextDefense"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAttack" />
 
     <TextView
         android:id="@+id/textViewRegister"
@@ -82,7 +143,7 @@
         android:ems="10"
         android:fontFamily="@font/baloo"
         android:inputType="textCapWords"
-        android:text="Wild Horse Pokémon"
+        android:text="Wild Horse Pokemon"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -91,6 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
     <TextView
+        android:id="@+id/editTextGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="245dp"
@@ -103,58 +165,63 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/editTextLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/baloo"
+        android:text="Level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
+
     <RadioGroup
         android:id="@+id/genderGroup"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="266dp"
-        android:layout_marginBottom="417dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/editTextGender">
 
         <RadioButton
             android:id="@+id/genderMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
-            android:textAlignment="center" />
+            android:text="Male" />
 
         <RadioButton
             android:id="@+id/genderFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:textAlignment="center" />
+            android:text="Female" />
 
         <RadioButton
             android:id="@+id/genderUnknown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unknown"
-            android:textAlignment="center" />
+            android:text="Unknown" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/editTextHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="11dp"
-        android:layout_marginEnd="95dp"
+        android:layout_marginEnd="94dp"
         android:ems="10"
         android:fontFamily="@font/baloo"
-        android:inputType="numberDecimal"
         android:hint="Height (m)"
+        android:inputType="numberDecimal"
         android:text="2.2"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderGroup" />
 
@@ -163,7 +230,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="11dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:fontFamily="@font/baloo"
@@ -174,7 +241,6 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
 
@@ -182,19 +248,20 @@
         android:id="@+id/spinnerLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="147dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWeight" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLevel" />
 
     <EditText
         android:id="@+id/editTextHP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:fontFamily="@font/baloo"
@@ -205,14 +272,14 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerLevel" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBaseStats" />
 
     <EditText
         android:id="@+id/editTextAttack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:fontFamily="@font/baloo"
@@ -229,8 +296,8 @@
         android:id="@+id/editTextDefense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="95dp"
         android:ems="10"
         android:fontFamily="@font/baloo"
@@ -248,8 +315,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="29dp"
         android:text="Reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -259,14 +326,13 @@
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="30dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonReset"
         app:layout_constraintTop_toBottomOf="@+id/editTextDefense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

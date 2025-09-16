@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/labelNationalNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="National Number:"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextNationalNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="@+id/labelNationalNumber"
+        app:layout_constraintStart_toEndOf="@id/labelNationalNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        app:layout_constraintTop_toBottomOf="@id/editTextNationalNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="@+id/labelName"
+        app:layout_constraintStart_toEndOf="@id/labelName"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species:"
+        app:layout_constraintTop_toBottomOf="@id/editTextName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextSpecies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="@+id/labelSpecies"
+        app:layout_constraintStart_toEndOf="@id/labelSpecies"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender:"
+        app:layout_constraintTop_toBottomOf="@id/editTextSpecies"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/genderGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@+id/labelGender"
+        app:layout_constraintStart_toEndOf="@id/labelGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <RadioButton
+            android:id="@+id/genderMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+
+        <RadioButton
+            android:id="@+id/genderFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"/>
+
+        <RadioButton
+            android:id="@+id/genderUnknown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unknown"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/labelHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP:"
+        app:layout_constraintTop_toBottomOf="@id/genderGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextHP"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="@+id/labelHP"
+        app:layout_constraintStart_toEndOf="@id/labelHP"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelAttack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attack:"
+        app:layout_constraintTop_toBottomOf="@id/editTextHP"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextAttack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="@+id/labelAttack"
+        app:layout_constraintStart_toEndOf="@id/labelAttack"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelDefense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Defense:"
+        app:layout_constraintTop_toBottomOf="@id/editTextAttack"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextDefense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="@+id/labelDefense"
+        app:layout_constraintStart_toEndOf="@id/labelDefense"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height:"
+        app:layout_constraintTop_toBottomOf="@id/editTextDefense"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toTopOf="@+id/labelHeight"
+        app:layout_constraintStart_toEndOf="@id/labelHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/labelWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight:"
+        app:layout_constraintTop_toBottomOf="@id/editTextHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toTopOf="@+id/labelWeight"
+        app:layout_constraintStart_toEndOf="@id/labelWeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerLevel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTextWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintTop_toBottomOf="@id/spinnerLevel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintTop_toBottomOf="@id/spinnerLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

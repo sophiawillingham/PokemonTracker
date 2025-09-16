@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Poke-Tracker</string>
     <string name="subheader">register new catch</string>
+    <string name="base_stats">base stats</string>
+    <string name="h_p">HP</string>
+    <string name="attack">attack</string>
+    <string name="defense">defense</string>
 
     <string-array name="level_array">
         <item>1</item>
