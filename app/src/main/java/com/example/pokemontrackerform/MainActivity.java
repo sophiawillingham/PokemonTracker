@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        setContentView(R.layout.table);
+        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.linear);
+        //setContentView(R.layout.constraint);
+        //setContentView(R.layout.table);
 
         //editTexts
         EditText editTextNationalNumber = findViewById(R.id.editTextNationalNumber);
@@ -29,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         EditText editTextDefense = findViewById(R.id.editTextDefense);
         RadioGroup genderGroup = findViewById(R.id.genderGroup);
         Spinner spinnerLevel = findViewById(R.id.spinnerLevel);
-
-
 
         //spinner set up
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -75,22 +75,21 @@ public class MainActivity extends AppCompatActivity {
                 if (name.isEmpty() || !name.matches("[a-zA-Z]{3,12}")) {
                     editTextName.setError("3-12 letters only");
                     valid = false;
-                    errors.append("Name must be 3-12 letters\n");
-
+                    errors.append("name must be 3-12 letters\n");
                 }
 
                 //make sure the gender is chosen
                 int selectedGenderId = genderGroup.getCheckedRadioButtonId();
                 if (selectedGenderId == -1) {
                     valid = false;
-                    errors.append("Select a gender\n");
+                    errors.append("choose a gender\n");
                 }
 
                 //make sure HP is between 1 and 362
                 try {
                     int hp = Integer.parseInt(editTextHP.getText().toString().trim());
                     if (hp < 1 || hp > 362) {
-                        editTextHP.setError("HP must be between 1-362");
+                        editTextHP.setError("HP has to be between 1-362");
                         valid = false;
                         errors.append("HP is out of range\n");
                     }
@@ -106,26 +105,40 @@ public class MainActivity extends AppCompatActivity {
                     if (attack < 0 || attack > 526) {
                         editTextAttack.setError("Attack must be 0-526");
                         valid = false;
-                        errors.append("Attack out of range\n");
+                        errors.append("attack value out of range\n");
                     }
                 } catch (NumberFormatException e) {
                     editTextAttack.setError("Enter a number");
                     valid = false;
-                    errors.append("Attack invalid\n");
+                    errors.append("attack is invalid\n");
                 }
 
                 //make sure defense must be between 10 and 614
                 try {
                     int defense = Integer.parseInt(editTextDefense.getText().toString().trim());
                     if (defense < 10 || defense > 614) {
-                        editTextDefense.setError("Defense must be 10-614");
+                        editTextDefense.setError("defense has to be 10-614");
                         valid = false;
-                        errors.append("Defense out of range\n");
+                        errors.append("defense is out of range\n");
                     }
                 } catch (NumberFormatException e) {
-                    editTextDefense.setError("Enter a number");
+                    editTextDefense.setError("please enter a number");
                     valid = false;
-                    errors.append("Defense invalid\n");
+                    errors.append("defense invalid\n");
+                }
+
+                //number validation for National Number
+                try {
+                    int nationalNumber = Integer.parseInt(editTextNationalNumber.getText().toString().trim());
+                    if (nationalNumber < 0 || nationalNumber > 1010) {
+                        editTextNationalNumber.setError("Must be 0-1010");
+                        valid = false;
+                        errors.append("National Number out of range\n");
+                    }
+                } catch (NumberFormatException e) {
+                    editTextNationalNumber.setError("Enter a number");
+                    valid = false;
+                    errors.append("National Number invalid\n");
                 }
 
                 //make sure height is between 0.2 and 169.99
@@ -136,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         valid = false;
                         errors.append("Height out of range\n");
                     } else {
-                        editTextHeight.setText(String.format("%.2f", height));
+                        editTextHeight.setText(String.format("%.2f", height) + " m"); //Add the letter m at the end of the value in the height field itself
                     }
                 } catch (NumberFormatException e) {
                     editTextHeight.setError("Enter a number");
@@ -152,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                         valid = false;
                         errors.append("Weight out of range\n");
                     } else {
-                        editTextWeight.setText(String.format("%.2f", weight));
+                        editTextWeight.setText(String.format("%.2f", weight) + " kg"); //Add the letters kg at the end of the value in the weight field
                     }
                 } catch (NumberFormatException e) {
                     editTextWeight.setError("Enter a number");
@@ -173,11 +186,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Information stored!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, errors.toString(), Toast.LENGTH_LONG).show();
+
+                    //make the first invalid field get focus
+                    if (editTextName.getError() != null) editTextName.requestFocus();
+                    else if (editTextNationalNumber.getError() != null)
+                        editTextNationalNumber.requestFocus();
+                    else if (editTextHP.getError() != null) editTextHP.requestFocus();
+                    else if (editTextAttack.getError() != null) editTextAttack.requestFocus();
+                    else if (editTextDefense.getError() != null) editTextDefense.requestFocus();
+                    else if (editTextHeight.getError() != null) editTextHeight.requestFocus();
+                    else if (editTextWeight.getError() != null) editTextWeight.requestFocus();
+                    else if (editTextSpecies.getError() != null) editTextSpecies.requestFocus();
                 }
             }
         });
     }
 }
-
-
-
